@@ -1,0 +1,568 @@
+{
+  "placeholderImages": [
+    {
+      "id": "prod_laptop_1",
+      "description": "A sleek, powerful laptop for all your professional needs.",
+      "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_laptop_2",
+      "description": "A lightweight and portable laptop with a long-lasting battery.",
+      "imageUrl": "https://images.unsplash.com/photo-1499914485622-a88fac536970?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_laptop_3",
+      "description": "High-performance laptop for gaming and creative work.",
+      "imageUrl": "https://images.unsplash.com/photo-1640955014216-75201056c829?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnYW1pbmclMjBsYXB0b3B8ZW58MHx8fHwxNzY0MDc5MTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gaming laptop"
+    },
+    {
+      "id": "prod_laptop_4",
+      "description": "A versatile 2-in-1 convertible laptop with a touchscreen.",
+      "imageUrl": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_laptop_5",
+      "description": "An elegant laptop with a stunning high-resolution display.",
+      "imageUrl": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_laptop_6",
+      "description": "An elegant laptop with a stunning high-resolution display.",
+      "imageUrl": "https://images.unsplash.com/photo-1499914485622-a88fac536970?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_laptop_7",
+      "description": "An elegant laptop with a stunning high-resolution display.",
+      "imageUrl": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_laptop_8",
+      "description": "An elegant laptop with a stunning high-resolution display.",
+      "imageUrl": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_laptop_9",
+      "description": "An elegant laptop with a stunning high-resolution display.",
+      "imageUrl": "https://images.unsplash.com/photo-1499914485622-a88fac536970?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_laptop_10",
+      "description": "An elegant laptop with a stunning high-resolution display.",
+      "imageUrl": "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MXwxfHNlYXJjaHwxfHxsYXB0b3B8ZW58MHx8fHwxNzY0MDQzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop"
+    },
+    {
+      "id": "prod_smartphone_1",
+      "description": "A flagship smartphone with a pro-grade camera and stunning display.",
+      "imageUrl": "https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbWFydHBob25lfGVufDB8fHx8MTc2NDAwOTcxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartphone"
+    },
+    {
+      "id": "prod_smartphone_2",
+      "description": "A premium smartphone with a powerful processor and sleek design.",
+      "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzbWFydHBob25lfGVufDB8fHx8MTc2NDAwOTcxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartphone"
+    },
+    {
+      "id": "prod_smartphone_3",
+      "description": "A smartphone with exceptional AI camera features and clean software.",
+      "imageUrl": "https://images.unsplash.com/photo-1572016047668-5b5e909e1605?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzbWFydHBob25lfGVufDB8fHx8MTc2NDAwOTcxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartphone"
+    },
+    {
+      "id": "prod_smartphone_4",
+      "description": "A performance-focused smartphone with incredibly fast charging.",
+      "imageUrl": "https://images.unsplash.com/photo-1592890288564-76628a30a657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lfGVufDB8fHx8MTc2NDAwOTcxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartphone"
+    },
+    {
+      "id": "prod_smartphone_5",
+      "description": "A compact and powerful smartphone with a versatile camera.",
+      "imageUrl": "https://images.unsplash.com/photo-1598826867442-9ef9e2527b1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzbWFydHBob25lfGVufDB8fHx8MTc2NDAwOTcxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartphone"
+    },
+    {
+      "id": "prod_powerbank_1",
+      "description": "A high-capacity power bank to keep all your devices charged on the go.",
+      "imageUrl": "https://images.unsplash.com/photo-1706275400998-7fc21c8cd8ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwb3dlciUyMGJhbmt8ZW58MHx8fHwxNzYzOTYzNzYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "power bank"
+    },
+    {
+      "id": "prod_phonecase_1",
+      "description": "A rugged and protective case for your smartphone.",
+      "imageUrl": "https://images.unsplash.com/photo-1547658718-f4311ad64746?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwaG9uZSUyMGNhc2V8ZW58MHx8fHwxNzY0MDA4Mjg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "phone case"
+    },
+    {
+      "id": "prod_carmount_1",
+      "description": "A secure car mount for easy navigation and hands-free calls.",
+      "imageUrl": "https://images.unsplash.com/photo-1636853394258-969726a04424?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYXIlMjBtb3VudHxlbnwwfHx8fDE3NjQwNzkxNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "car mount"
+    },
+    {
+      "id": "prod_earbuds_1",
+      "description": "True wireless earbuds with active noise cancellation and high-fidelity audio.",
+      "imageUrl": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlYXJidWRzfGVufDB8fHx8MTc2NDAwOTA0MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "earbuds"
+    },
+    {
+      "id": "prod_charger_1",
+      "description": "A fast and convenient wireless charger for your Qi-enabled devices.",
+      "imageUrl": "https://images.unsplash.com/photo-1633381638729-27f730955c23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3aXJlbGVzcyUyMGNoYXJnZXJ8ZW58MHx8fHwxNzYzOTg3NDY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wireless charger"
+    },
+    {
+      "id": "prod_headphones_1",
+      "description": "Over-ear headphones with industry-leading noise cancellation.",
+      "imageUrl": "https://images.unsplash.com/photo-1585298723682-7115561c51b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoZWFkcGhvbmVzfGVufDB8fHx8MTc2NDAwNDYzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "headphones"
+    },
+    {
+      "id": "prod_headphones_2",
+      "description": "Premium headphones with immersive audio and a comfortable fit.",
+      "imageUrl": "https://images.unsplash.com/photo-1484704849700-f032a568e944?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGVhZHBob25lc3xlbnwwfHx8fDE3NjQwMDQ2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "headphones"
+    },
+    {
+      "id": "prod_headphones_3",
+      "description": "Wireless headphones with long battery life and signature sound.",
+      "imageUrl": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoZWFkcGhvbmVzfGVufDB8fHx8MTc2NDAwNDYzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "headphones"
+    },
+    {
+      "id": "prod_headphones_4",
+      "description": "High-fidelity audio headphones with a stunning design and spatial audio.",
+      "imageUrl": "https://images.unsplash.com/photo-1737885197946-6d9d79dade89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHVkaW8lMjBoZWFkcGhvbmVzfGVufDB8fHx8MTc2NDA3OTE1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "studio headphones"
+    },
+    {
+      "id": "prod_headphones_5",
+      "description": "Affordable noise-canceling headphones perfect for travel.",
+      "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZWFkcGhvbmVzfGVufDB8fHx8MTc2NDAwNDYzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "headphones"
+    },
+    {
+      "id": "prod_smartwatch_1",
+      "description": "A rugged and capable smartwatch for athletes and adventurers.",
+      "imageUrl": "https://images.unsplash.com/photo-1660844817855-3ecc7ef21f12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzbWFydHdhdGNofGVufDB8fHx8MTc2NDA0MzczOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartwatch"
+    },
+    {
+      "id": "prod_smartwatch_2",
+      "description": "A versatile smartwatch with a classic design and comprehensive health tracking.",
+      "imageUrl": "https://images.unsplash.com/photo-1434494571168-ab162bce2813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbWFydHdhdGNofGVufDB8fHx8MTc2NDA0MzczOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartwatch"
+    },
+    {
+      "id": "prod_smartwatch_3",
+      "description": "A helpful smartwatch with deep integration of AI and fitness tracking.",
+      "imageUrl": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzbWFydHdhdGNofGVufDB8fHx8MTc2NDA0MzczOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartwatch"
+    },
+    {
+      "id": "prod_smartwatch_4",
+      "description": "An advanced GPS smartwatch with a bright display and long battery life.",
+      "imageUrl": "https://images.unsplash.com/photo-1632794716789-42d9995fb5b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbWFydHdhdGNofGVufDB8fHx8MTc2NDA0MzczOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartwatch"
+    },
+    {
+      "id": "prod_smartwatch_5",
+      "description": "A health-focused smartwatch with advanced stress and sleep tracking.",
+      "imageUrl": "https://images.unsplash.com/photo-1517502474097-f9b30659dadb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzbWFydHdhdGNofGVufDB8fHx8MTc2NDA0MzczOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smartwatch"
+    },
+    {
+      "id": "prod_camera_1",
+      "description": "A full-frame mirrorless camera with excellent autofocus and video capabilities.",
+      "imageUrl": "https://images.unsplash.com/photo-1495121553079-4c61bcce1894?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjYW1lcmF8ZW58MHx8fHwxNzYzOTkyMTM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "camera"
+    },
+    {
+      "id": "prod_camera_2",
+      "description": "A powerful and speedy mirrorless camera for enthusiasts and professionals.",
+      "imageUrl": "https://images.unsplash.com/photo-1536632087471-3cf3f2986328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYW1lcmF8ZW58MHx8fHwxNzYzOTkyMTM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "camera"
+    },
+    {
+      "id": "prod_camera_3",
+      "description": "A high-resolution professional camera that excels in both stills and 8K video.",
+      "imageUrl": "https://images.unsplash.com/photo-1756142006312-e00398adb242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MXwxfHNlYXJjaHwxfHxjYW1lcmF8ZW58MHx8fHwxNzYzOTkyMTM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "camera"
+    },
+    {
+      "id": "prod_camera_4",
+      "description": "A popular camera with a classic design and exceptional color science.",
+      "imageUrl": "https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FtZXJhfGVufDB8fHx8MTc2Mzk5MjEzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "camera"
+    },
+    {
+      "id": "prod_camera_5",
+      "description": "A rugged and versatile action camera with incredible stabilization.",
+      "imageUrl": "https://images.unsplash.com/photo-1741747270890-690da4f1cd1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhY3Rpb24lMjBjYW1lcmF8ZW58MHx8fHwxNzYzOTk1NTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "action camera"
+    },
+    {
+      "id": "prod_grocery_1",
+      "description": "Fresh and creamy avocados, perfect for toast and salads.",
+      "imageUrl": "https://images.unsplash.com/photo-1573566291259-fd494a326b60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhdm9jYWRvc3xlbnwwfHx8fDE3NjQwNTI2MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "avocados"
+    },
+    {
+      "id": "prod_grocery_2",
+      "description": "Pure Himalayan pink salt to enhance the flavor of your dishes.",
+      "imageUrl": "https://images.unsplash.com/photo-1606791450998-d3859ac80814?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwaW5rJTIwc2FsdHxlbnwwfHx8fDE3NjM5OTQ4ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pink salt"
+    },
+    {
+      "id": "prod_grocery_3",
+      "description": "Premium cold-pressed extra virgin olive oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1610547939489-73202bc6afda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxvbGl2ZSUyMG9pbHxlbnwwfHx8fDE3NjQwNTkwNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "olive oil"
+    },
+    {
+      "id": "prod_grocery_4",
+      "description": "Finely sifted almond flour, a great gluten-free baking alternative.",
+      "imageUrl": "https://images.unsplash.com/photo-1645476369818-8c1d565b93d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbG1vbmQlMjBmbG91cnxlbnwwfHx8fDE3NjQxNTQ0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "almond flour"
+    },
+    {
+      "id": "prod_grocery_5",
+      "description": "Organic, pre-washed quinoa, a versatile and complete protein.",
+      "imageUrl": "https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxxdWlub2F8ZW58MHx8fHwxNzY0MDc5MTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "quinoa"
+    },
+    {
+      "id": "prod_ethnic_1",
+      "description": "A luxurious silk blend saree with intricate zari work.",
+      "imageUrl": "https://images.unsplash.com/photo-1761125064797-3cb8a6e80a95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxldGhuaWMlMjBzYXJlZXxlbnwwfHx8fDE3NjQwNzkxNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ethnic saree"
+    },
+    {
+      "id": "prod_ethnic_2",
+      "description": "A comfortable and stylish men's kurta in breathable cotton.",
+      "imageUrl": "https://images.unsplash.com/photo-1734418040900-e964f84e8abb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWVuJTIwa3VydGF8ZW58MHx8fHwxNzY0MDc5MTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "men kurta"
+    },
+    {
+      "id": "prod_ethnic_3",
+      "description": "An elegant floor-length Anarkali gown with beautiful embroidery.",
+      "imageUrl": "https://images.unsplash.com/photo-1703812572795-2e2c87db6c2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhbmFya2FsaSUyMGdvd258ZW58MHx8fHwxNzY0MDc5MTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "anarkali gown"
+    },
+    {
+      "id": "prod_ethnic_4",
+      "description": "A classy brocade Nehru jacket for a sophisticated ethnic look.",
+      "imageUrl": "https://images.unsplash.com/photo-1634504929813-84e2afe5b2d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxuZWhydSUyMGphY2tldHxlbnwwfHx8fDE3NjQwNzkxNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nehru jacket"
+    },
+    {
+      "id": "prod_ethnic_5",
+      "description": "A beautiful suit with hand-embroidered Lucknowi Chikankari work.",
+      "imageUrl": "https://images.unsplash.com/photo-1673168871222-3d9e1268a172?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGlrYW5rYXJpJTIwc3VpdHxlbnwwfHx8fDE3NjQwNzkxNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chikankari suit"
+    },
+    {
+      "id": "prod_tshirt_1",
+      "description": "An ultra-soft and comfortable crew neck t-shirt.",
+      "imageUrl": "https://images.unsplash.com/photo-1618677603544-51162346e165?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0LXNoaXJ0fGVufDB8fHx8MTc2Mzk2MjYxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "t-shirt"
+    },
+    {
+      "id": "prod_tshirt_2",
+      "description": "A slim-fit v-neck t-shirt with a vintage-inspired graphic print.",
+      "imageUrl": "https://images.unsplash.com/photo-1669259427030-f4ef83f7544d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxncmFwaGljJTIwdGVlfGVufDB8fHx8MTc2Mzk2NDE5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "graphic tee"
+    },
+    {
+      "id": "prod_tshirt_3",
+      "description": "A classic striped t-shirt with a chest pocket.",
+      "imageUrl": "https://images.unsplash.com/photo-1760287363713-a864ca9b1b1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHJpcGVkJTIwc2hpcnR8ZW58MHx8fHwxNzY0MDI2MjgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "striped shirt"
+    },
+    {
+      "id": "prod_tshirt_4",
+      "description": "A comfortable long-sleeve Henley shirt in a thermal waffle-knit.",
+      "imageUrl": "https://images.unsplash.com/photo-1722489873772-28815bb7e4f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoZW5sZXklMjBzaGlydHxlbnwwfHx8fDE3NjQwNzkxNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "henley shirt"
+    },
+    {
+      "id": "prod_tshirt_5",
+      "description": "A stylish oversized t-shirt with a relaxed, boxy fit.",
+      "imageUrl": "https://images.unsplash.com/photo-1763935724100-66a664c0301c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxvdmVyc2l6ZWQlMjBzaGlydHxlbnwwfHx8fDE3NjQwNzkxNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "oversized shirt"
+    },
+    {
+      "id": "prod_hoodie_1",
+      "description": "A cozy pullover hoodie with a soft fleece lining.",
+      "imageUrl": "https://images.unsplash.com/photo-1573742262745-e549f756d4c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwdWxsb3ZlciUyMGhvb2RpZXxlbnwwfHx8fDE3NjQwNzkxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pullover hoodie"
+    },
+    {
+      "id": "prod_hoodie_2",
+      "description": "A sleek zip-up hoodie made from lightweight tech fleece.",
+      "imageUrl": "https://images.unsplash.com/photo-1613129645944-0a48c6ee7b60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx6aXAlMjBob29kaWV8ZW58MHx8fHwxNzY0MDc5MTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "zip hoodie"
+    },
+    {
+      "id": "prod_hoodie_3",
+      "description": "An extra warm hoodie with a plush sherpa lining.",
+      "imageUrl": "https://images.unsplash.com/photo-1596379870786-76e354cc1cb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzaGVycGElMjBob29kaWV8ZW58MHx8fHwxNzY0MDc5MTUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sherpa hoodie"
+    },
+    {
+      "id": "prod_hoodie_4",
+      "description": "A midweight fleece hoodie with a bold graphic print.",
+      "imageUrl": "https://images.unsplash.com/photo-1759972524905-6f5d3be92e32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxncmFwaGljJTIwaG9vZGllfGVufDB8fHx8MTc2NDA3OTE1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "graphic hoodie"
+    },
+    {
+      "id": "prod_hoodie_5",
+      "description": "A stylish hoodie with a panelled color-block design.",
+      "imageUrl": "https://images.unsplash.com/photo-1588932250351-36235af5c0f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb2xvcmJsb2NrJTIwaG9vZGllfGVufDB8fHx8MTc2NDA3OTE1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "colorblock hoodie"
+    },
+    {
+      "id": "prod_jewellery_1",
+      "description": "Classic hoop earrings crafted from sterling silver.",
+      "imageUrl": "https://images.unsplash.com/photo-1675621916370-45d335c3a571?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxob29wJTIwZWFycmluZ3N8ZW58MHx8fHwxNzY0MDExODAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hoop earrings"
+    },
+    {
+      "id": "prod_jewellery_2",
+      "description": "A dainty pendant necklace with gold plating.",
+      "imageUrl": "https://images.unsplash.com/photo-1763256614647-14abbc578252?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZW5kYW50JTIwbmVja2xhY2V8ZW58MHx8fHwxNzYzOTc3MDYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pendant necklace"
+    },
+    {
+      "id": "prod_jewellery_3",
+      "description": "A set of two handmade friendship bracelets.",
+      "imageUrl": "https://images.unsplash.com/photo-1652169118582-49432bf79172?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmcmllbmRzaGlwJTIwYnJhY2VsZXR8ZW58MHx8fHwxNzY0MDc5MTUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "friendship bracelet"
+    },
+    {
+      "id": "prod_jewellery_4",
+      "description": "Lightweight oxidised silver jhumka earrings.",
+      "imageUrl": "https://images.unsplash.com/photo-1653227907864-560dce4c252d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxqaHVta2ElMjBlYXJyaW5nc3xlbnwwfHx8fDE3NjQwNzkxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "jhumka earrings"
+    },
+    {
+      "id": "prod_jewellery_5",
+      "description": "A modern and minimalist signet ring.",
+      "imageUrl": "https://images.unsplash.com/photo-1508257599793-5a200cf82b07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaWduZXQlMjByaW5nfGVufDB8fHx8MTc2Mzk3NzA1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "signet ring"
+    },
+    {
+      "id": "prod_decor_1",
+      "description": "A bohemian-style macrame wall hanging.",
+      "imageUrl": "https://images.unsplash.com/photo-1590494065184-f00344f72a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFjcmFtZSUyMGRlY29yfGVufDB8fHx8MTc2Mzk3Njk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "macrame decor"
+    },
+    {
+      "id": "prod_decor_2",
+      "description": "A set of three ceramic planter pots with a matte finish.",
+      "imageUrl": "https://images.unsplash.com/photo-1627823940274-27db7362e65b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbGFudGVyJTIwcG90c3xlbnwwfHx8fDE3NjQwNzkxNTJ8MA&ixlibrb-4.1.0&q=80&w=1080",
+      "imageHint": "planter pots"
+    },
+    {
+      "id": "prod_decor_3",
+      "description": "A relaxing scented candle made from soy wax.",
+      "imageUrl": "https://images.unsplash.com/photo-1608977230965-6a1b92233ac6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY2VudGVkJTIwY2FuZGxlfGVufDB8fHx8MTc2Mzk2NTQyMHww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "scented candle"
+    },
+    {
+      "id": "prod_decor_4",
+      "description": "A set of two rustic floating wall shelves.",
+      "imageUrl": "https://images.unsplash.com/photo-1718248648359-2a3a5fc579c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YWxsJTIwc2hlbHZlc3xlbnwwfHx8fDE3NjQwNzkxNTJ8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "wall shelves"
+    },
+    {
+      "id": "prod_decor_5",
+      "description": "A large abstract canvas art print ready to hang.",
+      "imageUrl": "https://images.unsplash.com/photo-1612743140645-cd448eac75f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FudmFzJTIwYXJ0fGVufDB8fHx8MTc2NDA3OTQxNXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "canvas art"
+    },
+    {
+      "id": "prod_shirt_1",
+      "description": "A lightweight and breathable 100% linen shirt.",
+      "imageUrl": "https://images.unsplash.com/photo-1740711152088-88a009e877bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsaW5lbiUyMHNoaXJ0fGVufDB8fHx8MTc2Mzk5NjEyN3ww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "linen shirt"
+    },
+    {
+      "id": "prod_shirt_2",
+      "description": "A classic plaid shirt made from soft, brushed cotton flannel.",
+      "imageUrl": "https://images.unsplash.com/photo-1628095443037-9fa6cea9607d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmbGFubmVsJTIwc2hpcnR8ZW58MHx8fHwxNzY0MDQ1NjM5fDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "flannel shirt"
+    },
+    {
+      "id": "prod_shirt_3",
+      "description": "A durable denim workshirt with western-style yokes.",
+      "imageUrl": "https://images.unsplash.com/photo-1559334417-a57bd929f003?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkZW5pbSUyMHNoaXJ0fGVufDB8fHx8MTc2NDAyNTI2OXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "denim shirt"
+    },
+    {
+      "id": "prod_shirt_4",
+      "description": "A timeless Oxford cloth button-down shirt, a wardrobe staple.",
+      "imageUrl": "https://images.unsplash.com/photo-1758600588319-fa4097ee5208?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxveGZvcmQlMjBzaGlydHxlbnwwfHx8fDE3NjQwNzkxNTJ8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "oxford shirt"
+    },
+    {
+      "id": "prod_shirt_5",
+      "description": "A relaxed short-sleeve shirt with a camp collar and tropical print.",
+      "imageUrl": "https://images.unsplash.com/photo-1696538385604-57a8c984bd84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYW1wJTIwc2hpcnR8ZW58MHx8fHwxNzY0MDc5MTUyfDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "camp shirt"
+    },
+    {
+      "id": "prod_dress_1",
+      "description": "An elegant floral wrap maxi dress with a tie-waist detail.",
+      "imageUrl": "https://images.unsplash.com/photo-1517970640957-23d07d5ed08c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmbG9yYWwlMjBkcmVzc3xlbnwwfHx8fDE3NjQwMjgxNzB8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "floral dress"
+    },
+    {
+      "id": "prod_dress_2",
+      "description": "A chic and modern ribbed knit bodycon dress.",
+      "imageUrl": "https://images.unsplash.com/photo-1698171835206-7b30b046b634?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxrbml0JTIwZHJlc3N8ZW58MHx8fHwxNzY0MDc5MTUyfDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "knit dress"
+    },
+    {
+      "id": "prod_dress_3",
+      "description": "A charming tiered cotton sundress with a smocked back.",
+      "imageUrl": "https://images.unsplash.com/photo-1602206338368-9dbf865c48ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdW5kcmVzc3xlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "sundress"
+    },
+    {
+      "id": "prod_dress_4",
+      "description": "A playful puff sleeve mini dress with a sweetheart neckline.",
+      "imageUrl": "https://images.unsplash.com/photo-1667890786022-98704b9b8fcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtaW5pJTIwZHJlc3N8ZW58MHx8fHwxNzY0MDc5NDE1fDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "mini dress"
+    },
+    {
+      "id": "prod_dress_5",
+      "description": "A crisp cotton shirt dress with a detachable waist belt.",
+      "imageUrl": "https://images.unsplash.com/photo-1720514496503-c399e2af61d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzaGlydCUyMGRyZXNzfGVufDB8fHx8MTc2NDA3OTQxNnww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "shirt dress"
+    },
+    {
+      "id": "prod_bottom_1",
+      "description": "Classic high-waisted straight leg jeans in rigid denim.",
+      "imageUrl": "https://images.unsplash.com/photo-1542272604-787c3835535d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxqZWFuc3xlbnwwfHx8fDE3NjQwNjMwNTZ8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "jeans"
+    },
+    {
+      "id": "prod_bottom_2",
+      "description": "Stylish wide-leg linen trousers with a pleat-front detail.",
+      "imageUrl": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0cm91c2Vyc3xlbnwwfHx8fDE3NjQwNzk0MTZ8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "trousers"
+    },
+    {
+      "id": "prod_bottom_3",
+      "description": "Comfortable cargo jogger pants in a stretch twill fabric.",
+      "imageUrl": "https://images.unsplash.com/photo-1580906853305-5702e648164e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxqb2dnZXJzfGVufDB8fHx8MTc2NDA3OTQxNXww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "joggers"
+    },
+    {
+      "id": "prod_bottom_4",
+      "description": "A cute A-line denim skirt with a button-front.",
+      "imageUrl": "https://images.unsplash.com/photo-1743356914615-66062f1850e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkZW5pbSUyMHNraXJ0fGVufDB8fHx8MTc2NDA2MjE3OHww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "denim skirt"
+    },
+    {
+      "id": "prod_bottom_5",
+      "description": "High-performance leggings with a moisture-wicking fabric.",
+      "imageUrl": "https://images.unsplash.com/photo-1597299001669-6454fec8ac25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsZWdnaW5nc3xlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "leggings"
+    },
+    {
+      "id": "prod_top_1",
+      "description": "A lustrous satin cami top with adjustable spaghetti straps.",
+      "imageUrl": "https://images.unsplash.com/photo-1704775989365-eebfd4659a23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzYXRpbiUyMHRvcHxlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "satin top"
+    },
+    {
+      "id": "prod_top_2",
+      "description": "A sheer chiffon blouse with delicate lace insets.",
+      "imageUrl": "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxibG91c2V8ZW58MHx8fHwxNzY0MDc5NDE1fDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "blouse"
+    },
+    {
+      "id": "prod_top_3",
+      "description": "A cropped peasant top with a smocked bodice.",
+      "imageUrl": "https://picsum.photos/seed/1603/600/400",
+      "imageHint": "peasant top"
+    },
+    {
+      "id": "prod_top_4",
+      "description": "A flattering square neck bodysuit in a double-layered stretch fabric.",
+      "imageUrl": "https://images.unsplash.com/photo-1595939959767-ae6c538f01a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxib2R5c3VpdHxlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "bodysuit"
+    },
+    {
+      "id": "prod_top_5",
+      "description": "A cozy chunky knit sweater with a cable-knit pattern.",
+      "imageUrl": "https://images.unsplash.com/photo-1611911813383-67769b37a149?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3dlYXRlcnxlbnwwfHx8fDE3NjM5Njk2NzF8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "sweater"
+    },
+    {
+      "id": "prod_keyboard_1",
+      "description": "A premium, low-profile keyboard with smart backlighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1541140532154-b024d705b90a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxrZXlib2FyZHxlbnwwfHx8fDE3NjM5OTQ1OTF8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "keyboard"
+    },
+    {
+      "id": "prod_keyboard_2",
+      "description": "A fully customizable mechanical keyboard with hot-swappable switches.",
+      "imageUrl": "https://images.unsplash.com/photo-1595225386386-79c3543adbd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtZWNoYW5pY2FsJTIwa2V5Ym9hcmR8ZW58MHx8fHwxNzYzOTc5NzY2fDA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "mechanical keyboard"
+    },
+    {
+      "id": "prod_keyboard_3",
+      "description": "A top-tier gaming keyboard with customizable RGB lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1631449061775-c79df03a44f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxnYW1pbmclMjBrZXlib2FyZHxlbnwwfHx8fDE3NjQwMjQyNDF8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "gaming keyboard"
+    },
+    {
+      "id": "prod_keyboard_4",
+      "description": "The quintessential minimalist keyboard with a sleek aluminum build.",
+      "imageUrl": "https://images.unsplash.com/photo-1595044426077-d36d9236d54a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxrZXlib2FyZHxlbnwwfHx8fDE3NjM5OTQ1OTF8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "keyboard"
+    },
+    {
+      "id": "prod_tv_1",
+      "description": "A flagship 4K QD-OLED TV with a new anti-glare screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0dnxlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "tv"
+    },
+    {
+      "id": "prod_tv_2",
+      "description": "A premium OLED TV with exceptional brightness.",
+      "imageUrl": "https://images.unsplash.com/photo-1717295248230-93ea71f48f92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0dnxlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "tv"
+    },
+    {
+      "id": "prod_tv_3",
+      "description": "A high-end Mini LED TV that delivers outstanding brightness and contrast.",
+      "imageUrl": "https://images.unsplash.com/photo-1593784991095-a205069470b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0dnxlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "tv"
+    },
+    {
+      "id": "prod_tv_4",
+      "description": "A feature-packed Mini LED TV that offers excellent performance for its price.",
+      "imageUrl": "https://images.unsplash.com/photo-1646861039459-fd9e3aabf3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0dnxlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "tv"
+    },
+    {
+      "id": "prod_tv_5",
+      "description": "A bright and colorful Mini LED TV that provides great value.",
+      "imageUrl": "https://images.unsplash.com/photo-1584905066893-7d5c142ba4e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0dnxlbnwwfHx8fDE3NjQwNzk0MTV8MA&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "tv"
+    }
+  ]
+}

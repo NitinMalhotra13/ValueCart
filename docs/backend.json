@@ -1,0 +1,627 @@
+
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the ValueCart application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "User's full name."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "profileImageUrl": {
+          "type": "string",
+          "description": "URL of the user's profile image.",
+          "format": "uri"
+        },
+        "isAdmin": {
+          "type": "boolean",
+          "description": "Indicates if the user has administrative privileges."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email"
+      ]
+    },
+    "Product": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Product",
+      "type": "object",
+      "description": "Represents a product available for purchase.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the product entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the product."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the product."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the product image.",
+          "format": "uri"
+        },
+        "price": {
+          "type": "number",
+          "description": "Price of the product."
+        },
+        "rating": {
+          "type": "number",
+          "description": "Customer rating of the product."
+        },
+        "specifications": {
+          "type": "string",
+          "description": "Technical specifications of the product (e.g., size, weight, dimensions)."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "imageUrl",
+        "price",
+        "rating"
+      ]
+    },
+    "ProductPriceHistory": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ProductPriceHistory",
+      "type": "object",
+      "description": "Represents the price history of a product.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the price history entry."
+        },
+        "productId": {
+          "type": "string",
+          "description": "Reference to Product. (Relationship: Product 1:N ProductPriceHistory)"
+        },
+        "price": {
+          "type": "number",
+          "description": "The price of the product at a specific point in time."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The date and time when the price was recorded.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "productId",
+        "price",
+        "timestamp"
+      ]
+    },
+    "CartItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "CartItem",
+      "type": "object",
+      "description": "Represents an item within a shared shopping cart.",
+      "properties": {
+        "id": { "type": "string", "description": "Document ID, same as productId for simplicity." },
+        "productId": { "type": "string", "description": "Reference to the Product entity." },
+        "name": { "type": "string", "description": "Denormalized product name." },
+        "price": { "type": "number", "description": "Denormalized product price." },
+        "imageUrl": { "type": "string", "format": "uri", "description": "Denormalized product image URL." },
+        "imageHint": { "type": "string", "description": "Denormalized product image hint." },
+        "quantity": { "type": "number", "description": "Quantity of the product in the cart." }
+      },
+      "required": ["productId", "name", "price", "imageUrl", "quantity"]
+    },
+    "Budget": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Budget",
+      "type": "object",
+      "description": "Represents a user's budget for shopping.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the budget entity."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Budget)"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the budget."
+        },
+        "amount": {
+          "type": "number",
+          "description": "The total budget amount."
+        },
+        "categoryLimits": {
+          "type": "string",
+          "description": "Specific budget limits for different product categories. Stored as a JSON string"
+        },
+        "sharedUsers": {
+          "type": "array",
+          "description": "References to Users that can see this budget. (Relationship: User N:N Budget)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "name",
+        "amount"
+      ]
+    },
+    "DeliveryAddress": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "DeliveryAddress",
+      "type": "object",
+      "description": "Represents a user's delivery address.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the address entity."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user who owns this address."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Recipient's full name."
+        },
+        "addressLine1": {
+          "type": "string",
+          "description": "Street address, P.O. box, company name, c/o."
+        },
+        "addressLine2": {
+          "type": "string",
+          "description": "Apartment, suite, unit, building, floor, etc."
+        },
+        "city": {
+          "type": "string",
+          "description": "City name."
+        },
+        "state": {
+          "type": "string",
+          "description": "State or province."
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal or ZIP code."
+        },
+        "country": {
+          "type": "string",
+          "description": "Country."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Recipient's phone number."
+        }
+      },
+      "required": ["userId", "fullName", "addressLine1", "city", "state", "postalCode", "country", "phoneNumber"]
+    },
+    "Purchase": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Purchase",
+      "type": "object",
+      "description": "Represents a completed purchase made by a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the purchase entity."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Purchase)"
+        },
+        "items": {
+          "type": "array",
+          "description": "An array of objects representing the items purchased.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "priceAtPurchase": {
+                "type": "number"
+              },
+              "imageUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "imageHint": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "productId",
+              "name",
+              "quantity",
+              "priceAtPurchase"
+            ]
+          }
+        },
+        "purchaseDate": {
+          "type": "string",
+          "description": "The date and time when the purchase was made.",
+          "format": "date-time"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "The total amount of the purchase."
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the order.",
+          "enum": [
+            "Processing",
+            "Shipped",
+            "Delivered",
+            "Cancelled"
+          ]
+        },
+        "deliveryAddress": {
+          "$ref": "#/backend/entities/DeliveryAddress",
+          "description": "The delivery address for this purchase."
+        },
+         "cancelledByUserId": {
+          "type": "string",
+          "description": "The UID of the user who cancelled the order."
+        },
+        "cancelledByUserName": {
+          "type": "string",
+          "description": "The name of the user who cancelled the order."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "items",
+        "purchaseDate",
+        "totalAmount",
+        "status",
+        "deliveryAddress"
+      ]
+    },
+    "Notification": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Notification",
+      "type": "object",
+      "description": "Represents a notification for a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the notification entity."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Notification)"
+        },
+        "message": {
+          "type": "string",
+          "description": "The notification message."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The date and time when the notification was created.",
+          "format": "date-time"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of notification (e.g., price drop, new recommendation)."
+        },
+        "productId": {
+          "type": "string",
+          "description": "Reference to Product. (Relationship: Product 1:N Notification)"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "message",
+        "timestamp",
+        "type"
+      ]
+    },
+    "RecommendationLog": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "RecommendationLog",
+      "type": "object",
+      "description": "Represents a log entry for a product recommendation.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the recommendation log entity."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N RecommendationLog)"
+        },
+        "productId": {
+          "type": "string",
+          "description": "Reference to Product. (Relationship: Product 1:N RecommendationLog)"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The date and time when the recommendation was generated.",
+          "format": "date-time"
+        },
+        "algorithm": {
+          "type": "string",
+          "description": "The algorithm used to generate the recommendation (e.g., content-based, collaborative filtering)."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "productId",
+        "timestamp",
+        "algorithm"
+      ]
+    },
+    "ItemEmbedding": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ItemEmbedding",
+      "type": "object",
+      "description": "Represents the embedding vector for a product used in the recommendation engine.",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "description": "Unique identifier for the product entity."
+        },
+        "embedding": {
+          "type": "array",
+          "description": "The embedding vector for the product.",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "productId",
+        "embedding"
+      ]
+    },
+    "Invitation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Invitation",
+      "description": "Represents an invitation to share a budget.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the invitation." },
+        "fromUserId": { "type": "string", "description": "The UID of the user who sent the invitation." },
+        "fromUserName": { "type": "string", "description": "The name of the user who sent the invitation." },
+        "toUserEmail": { "type": "string", "description": "The email of the user receiving the invitation.", "format": "email" },
+        "budgetId": { "type": "string", "description": "The ID of the budget being shared." },
+        "budgetName": { "type": "string", "description": "The name of the budget being shared (denormalized)." },
+        "status": { "type": "string", "enum": ["pending", "accepted", "declined"], "description": "The current status of the invitation." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of when the invitation was created." }
+      },
+      "required": ["fromUserId", "toUserEmail", "budgetId", "status", "createdAt"]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profile information. The 'userId' parameter is the Firebase Auth UID.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user, corresponding to the Firebase Auth UID."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/addresses/{addressId}",
+        "definition": {
+            "entityName": "DeliveryAddress",
+            "schema": { "$ref": "#/backend/entities/DeliveryAddress" },
+            "description": "Stores user delivery addresses. Can only be accessed by the owning user.",
+             "params": [
+                {
+                  "name": "userId",
+                  "description": "The unique identifier for the user."
+                },
+                {
+                  "name": "addressId",
+                  "description": "The unique identifier for the address."
+                }
+            ]
+        }
+      },
+      {
+        "path": "/products/{productId}",
+        "definition": {
+          "entityName": "Product",
+          "schema": {
+            "$ref": "#/backend/entities/Product"
+          },
+          "description": "Stores product information. Accessible by all users, but only modifiable by admins.",
+          "params": [
+            {
+              "name": "productId",
+              "description": "The unique identifier for the product."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/product_price_history/{historyId}",
+        "definition": {
+          "entityName": "ProductPriceHistory",
+          "schema": {
+            "$ref": "#/backend/entities/ProductPriceHistory"
+          },
+          "description": "Stores historical price data for products. Publicly readable, append-only by a trusted process.",
+          "params": [
+            {
+              "name": "historyId",
+              "description": "The unique identifier for the price history entry."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/budgets/{budgetId}/cart/{productId}",
+        "definition": {
+          "entityName": "CartItem",
+          "schema": {
+            "$ref": "#/backend/entities/CartItem"
+          },
+          "description": "Stores items in a shared shopping cart for a budget. Accessible by all budget members.",
+          "params": [
+            {
+              "name": "budgetId",
+              "description": "The unique identifier for the budget."
+            },
+            {
+              "name": "productId",
+              "description": "The unique identifier for the product in the cart."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/budgets/{budgetId}",
+        "definition": {
+          "entityName": "Budget",
+          "schema": {
+            "$ref": "#/backend/entities/Budget"
+          },
+          "description": "Stores budget information. Includes denormalized 'sharedUsers' array for authorization independence.",
+          "params": [
+            {
+              "name": "budgetId",
+              "description": "The unique identifier for the budget."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/purchases/{purchaseId}",
+        "definition": {
+          "entityName": "Purchase",
+          "schema": {
+            "$ref": "#/backend/entities/Purchase"
+          },
+          "description": "Stores purchase history for each user. Accessible only by the user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            },
+            {
+              "name": "purchaseId",
+              "description": "The unique identifier for the purchase."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/notifications/{notifId}",
+        "definition": {
+          "entityName": "Notification",
+          "schema": {
+            "$ref": "#/backend/entities/Notification"
+          },
+          "description": "Stores notifications for each user. Accessible only by the user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            },
+            {
+              "name": "notifId",
+              "description": "The unique identifier for the notification."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/recommendation_logs/{logId}",
+        "definition": {
+          "entityName": "RecommendationLog",
+          "schema": {
+            "$ref": "#/backend/entities/RecommendationLog"
+          },
+          "description": "Stores logs of product recommendations.  Append-only by a trusted process, readable for analytics.",
+          "params": [
+            {
+              "name": "logId",
+              "description": "The unique identifier for the recommendation log entry."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/ml/item_embeddings/{productId}",
+        "definition": {
+          "entityName": "ItemEmbedding",
+          "schema": {
+            "$ref": "#/backend/entities/ItemEmbedding"
+          },
+          "description": "Stores item embedding vectors for the recommendation engine.  Write-only by a trusted process.",
+          "params": [
+            {
+              "name": "productId",
+              "description": "The unique identifier for the product."
+            }
+          ]
+        }
+      },
+       {
+        "path": "/invitations/{invitationId}",
+        "definition": {
+          "entityName": "Invitation",
+          "schema": { "$ref": "#/backend/entities/Invitation" },
+          "description": "Stores invitations for users to join a shared budget.",
+          "params": [
+            {
+              "name": "invitationId",
+              "description": "The unique identifier for the invitation."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to support the ValueWise Cart application, emphasizing security, scalability, and ease of debugging. The structure follows the principles of Authorization Independence, Structural Segregation, Access Modeling, and Data Clarity. Authorization Independence is achieved primarily through denormalization, specifically for collaborative data like `budgets` where `sharedUsers` are critical for authorization. The `sharedUsers` array in `budgets` provides a local authorization context, eliminating the need for `get()` calls in security rules to verify shared access, thus ensuring atomic operations. Structural Segregation is enforced by dedicating specific collections to different access needs. For instance, user-specific data is stored under `/users/{userId}/...`, ensuring that rules can be applied consistently across the collection based on the authenticated user. A new `/budgets/{budgetId}/cart` subcollection is added to manage the shared cart for each budget, allowing multiple users to interact with the same cart in real-time. A new `/users/{userId}/addresses` collection is added for user-specific delivery addresses. Access Modeling employs path-based ownership (e.g., `/users/{userId}/purchases/{purchaseId}`) and membership maps (`sharedUsers` in `/budgets/{budgetId}`). Data Clarity is maintained through explicit state modeling, predictable schemas, and consistent naming conventions. A new `/invitations` collection is added to manage the budget sharing workflow, allowing users to invite others and for invitees to accept or decline."
+  }
+}

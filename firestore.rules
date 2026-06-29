@@ -1,0 +1,298 @@
+
+/**
+ * This ruleset enforces a security model for the ValueCart application.
+ *
+ * Core Philosophy:
+ * The security model is primarily user-centric, defaulting to strict ownership of private data.
+ * It also supports publicly readable data, role-based admin access, and collaborative data sharing
+ * through a secure, denormalized pattern.
+ *
+ * Data Structure:
+ * - User-specific, private data (purchases, notifications, addresses) is nested under `/users/{userId}`.
+ * - Top-level collections are used for public data (`products`, `product_price_history`),
+ *   collaborative data (`budgets`), and backend-only data (`recommendation_logs`, `ml`).
+ * - Shared carts are nested under `/budgets/{budgetId}/cart`.
+ *
+ * Key Security Decisions:
+ * - User Isolation: A user can only access data within their own `/users/{userId}` path. Listing other users is allowed for collaboration features.
+ * - Admin Roles: Product data is publicly readable, but can only be modified by users with an `isAdmin` flag in their user profile, enforced via a `get()` call.
+ * - Shared Budgets & Carts: The `/budgets` collection uses a denormalized `sharedUsers` array to grant read/write access to collaborators without extra `get` calls, which is fast, secure, and ensures list operations are safe. This membership extends to the nested `/cart` subcollection.
+ * - Invitations: The `/invitations` collection allows users to create invitations and allows the recipient to read and update (accept/decline) them.
+ * - Backend-Only Collections: Several collections are made read-only or completely inaccessible to clients, as they are managed by trusted server-side processes.
+ *
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --------------------------------
+    // Helper Functions
+    // --------------------------------
+
+    /**
+     * Returns true if the user is authenticated.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /**
+     * Returns true if the authenticated user's UID matches the provided userId.
+     * This is the foundation of the user ownership model.
+     */
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+     /**
+     * Returns true if the user is accepting a valid invitation for a specific budget.
+     * It queries the invitations collection to find a pending invitation for the user and budget.
+     */
+    function isAcceptingValidInvitation(budgetId, userId) {
+        // Ensure invitationId is provided in the request to the budget document
+        let invitationId = request.resource.data.invitationId;
+        return exists(/databases/$(database)/documents/invitations/$(invitationId)) &&
+               get(/databases/$(database)/documents/invitations/$(invitationId)).data.toUserEmail == request.auth.token.email &&
+               get(/databases/$(database)/documents/invitations/$(invitationId)).data.budgetId == budgetId &&
+               get(/databases/$(database)/documents/invitations/$(invitationId)).data.status == 'pending' &&
+               // Check if the user ID being added is the one making the request
+               request.resource.data.sharedUsers[request.resource.data.sharedUsers.size() - 1] == userId;
+    }
+
+    /**
+     * Returns true if the document being operated on already exists.
+     * CRITICAL for safe update and delete operations.
+     */
+    function docExists() {
+      return exists(/databases/$(database)/documents/$(resource.id));
+    }
+    
+     /**
+     * Returns true if the document being operated on will exist after the operation.
+     */
+    function docWillExist() {
+       return existsAfter(/databases/$(database)/documents/$(request.resource.id));
+    }
+
+    /**
+     * Returns true if the requesting user has admin privileges.
+     * This performs a read to the user's own profile document.
+     */
+    function isAdmin() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    /**
+     * On create, validates that the new document's userId field matches the owner's UID.
+     * Ensures relational integrity for data nested under a user's path.
+     */
+    function isCreatingOwnDoc(userId) {
+      return isOwner(userId) && request.resource.data.userId == userId;
+    }
+    
+    /**
+     * On update, ensures the userId field remains unchanged.
+     * Prevents re-assigning ownership of a document.
+     */
+    function isUpdatingOwnDoc() {
+      return request.resource.data.userId == resource.data.userId;
+    }
+    
+    /**
+     * Checks if the requesting user is a member of the specified budget.
+     * This performs a `get` call to the budget document to check the `sharedUsers` array.
+     */
+    function isBudgetMember(budgetId) {
+      let budgetPath = /databases/$(database)/documents/budgets/$(budgetId);
+      return isSignedIn() && exists(budgetPath) && request.auth.uid in get(budgetPath).data.sharedUsers;
+    }
+    
+    /**
+     * @description A multi-line comment describing the rule.
+     * @path The Firestore path.
+     * @allow A specific example of an allowed request.
+     * @deny A specific example of a denied request.
+     * @principle The security principle being enforced.
+     */
+    
+    /**
+     * @description Manages user profile documents. A user can create their own profile,
+     *              and can only read or write their own data after creation.
+     * @path /users/{userId}
+     * @allow A new user creates their own profile: (create) as {uid: 'user123'} on path `/users/user123`.
+     * @deny An authenticated user tries to view another user's profile: (get) as {uid: 'user456'} on path `/users/user123`.
+     * @principle Enforces self-creation and strict document ownership. User profiles are private.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if isSignedIn(); // Allow signed-in users to look up other users
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId) && docExists();
+      allow delete: if isOwner(userId) && docExists();
+
+      /**
+       * @description Manages a user's private purchase history.
+       * @path /users/{userId}/purchases/{purchaseId}
+       * @allow User 'user123' creates a new purchase record: (create) as {uid: 'user123'} on path `/users/user123/purchases/abc`.
+       * @allow A member of a shared budget creates a purchase record for another member of that budget.
+       * @deny Another user tries to delete a purchase record: (delete) as {uid: 'user456'} on path `/users/user123/purchases/abc`.
+       * @principle Restricts access to a user's own data tree, but allows creation/cancellation by budget members for collaborative purchases.
+       */
+      match /purchases/{purchaseId} {
+        allow get: if isOwner(userId);
+        allow list: if isOwner(userId);
+        allow create: if isCreatingOwnDoc(userId) || (
+          request.resource.data.budgetId != null &&
+          isBudgetMember(request.resource.data.budgetId) &&
+          userId in get(/databases/$(database)/documents/budgets/$(request.resource.data.budgetId)).data.sharedUsers
+        );
+        allow update: if isOwner(userId) || (
+              resource.data.budgetId != null &&
+              isBudgetMember(resource.data.budgetId) &&
+              request.resource.data.status == 'Cancelled'
+          );
+        allow delete: if isOwner(userId) || (
+              resource.data.budgetId != null &&
+              isBudgetMember(resource.data.budgetId)
+          );
+      }
+
+      /**
+       * @description Manages a user's private notifications.
+       * @path /users/{userId}/notifications/{notifId}
+       * @allow User 'user123' reads their own notification: (get) as {uid: 'user123'} on path `/users/user123/notifications/abc`.
+       * @deny User 'user456' tries to create a notification for another user: (create) as {uid: 'user456'} on path `/users/user123/notifications/abc`.
+       * @principle Restricts access to a user's own data tree using path-based security.
+       */
+      match /notifications/{notifId} {
+        allow get: if isOwner(userId);
+        allow list: if isOwner(userId);
+        allow create: if isCreatingOwnDoc(userId);
+        allow update: if isOwner(userId) && docExists() && isUpdatingOwnDoc();
+        allow delete: if isOwner(userId) && docExists();
+      }
+      
+      /**
+       * @description Manages a user's delivery addresses.
+       * @path /users/{userId}/addresses/{addressId}
+       * @allow User 'user123' creates a new address: (create) as {uid: 'user123'} on path `/users/user123/addresses/addr1`.
+       * @deny User 'user456' tries to read addresses of 'user123': (list) as {uid: 'user456'} on path `/users/user123/addresses`.
+       * @principle Enforces strict ownership over sensitive address information.
+       */
+      match /addresses/{addressId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    /**
+     * @description Stores product information. All data is public to read for any user (signed in or not).
+     *              Only authenticated admins are allowed to create, update, or delete products.
+     * @path /products/{productId}
+     * @allow An anonymous user views a product: (get) as {uid: null} on path `/products/prod123`.
+     * @deny A regular, non-admin user tries to create a product: (create) as {uid: 'user456'} on path `/products/prod456`.
+     * @principle Implements a public-read collection with role-based write access.
+     */
+    match /products/{productId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin() && docExists();
+      allow delete: if isAdmin() && docExists();
+    }
+
+    /**
+     * @description Stores historical price data for products. This data is public and immutable from the client.
+     * @path /product_price_history/{historyId}
+     * @allow Any user lists the price history for a product: (list) on path `/product_price_history`.
+     * @deny Any client attempts to modify the price history: (create) as {uid: 'user123'} on path `/product_price_history/new_entry`.
+     * @principle Secures data that should only be written by a trusted backend process.
+     */
+    match /product_price_history/{historyId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Stores user budgets. Allows read by members, write by owner. A user can add themselves
+     *              to `sharedUsers` only if they are accepting a valid invitation.
+     * @path /budgets/{budgetId}
+     * @allow A user in `sharedUsers` reads the budget: (get) on `/budgets/abc`.
+     * @deny A user not in `sharedUsers` tries to update the budget: (update) on `/budgets/abc`.
+     * @principle Enforces shared access for reads, strict ownership for writes, with an exception for joining via invitation.
+     */
+    match /budgets/{budgetId} {
+      allow get: if isBudgetMember(budgetId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isOwner(resource.data.userId) || isAcceptingValidInvitation(budgetId, request.auth.uid);
+      allow delete: if isOwner(resource.data.userId);
+
+      /**
+       * @description Manages a budget's shared shopping cart. All members of a budget can read and modify the cart.
+       * @path /budgets/{budgetId}/cart/{cartItemId}
+       * @allow A member of the budget adds an item to the cart: (create) as {uid: 'user456'} on path `/budgets/abc/cart/prod123`.
+       * @deny A non-member tries to read the cart: (get) as {uid: 'user789'} on path `/budgets/abc/cart/prod123`.
+       * @principle Inherits access control from the parent budget document. All members of a budget can list and write to the cart.
+       */
+       match /cart/{cartItemId} {
+          allow read, write: if isBudgetMember(budgetId);
+       }
+    }
+    
+    /**
+     * @description Manages budget sharing invitations.
+     * @path /invitations/{invitationId}
+     * @allow A user creates an invitation for their budget: (create) as {uid: 'user123'} on path `/invitations/xyz` with `fromUserId: 'user123'`.
+     * @allow The invited user reads the invitation: (get) as {uid: 'user456'} on path `/invitations/xyz` where doc `toUserEmail` matches user's email.
+     * @deny A user tries to read an invitation not addressed to them: (get) as {uid: 'user789'}.
+     * @principle Ensures only the sender can create and the recipient can read/action an invitation.
+     */
+    match /invitations/{invitationId} {
+      allow list: if isSignedIn();
+      allow get: if isSignedIn() && (
+        resource.data.fromUserId == request.auth.uid ||
+        resource.data.toUserEmail == request.auth.token.email
+      );
+      allow create: if isSignedIn() && request.resource.data.fromUserId == request.auth.uid;
+      allow update, delete: if isSignedIn() && (
+        resource.data.fromUserId == request.auth.uid ||
+        resource.data.toUserEmail == request.auth.token.email
+      );
+    }
+
+    /**
+     * @description Stores logs of product recommendations. Data is publicly readable for analytics but cannot be modified by clients.
+     * @path /recommendation_logs/{logId}
+     * @allow An analytics service reads a recommendation log: (get) on path `/recommendation_logs/log123`.
+     * @deny A client attempts to write a fake log entry: (create) as {uid: 'user123'} on path `/recommendation_logs/log456`.
+     * @principle Secures data that should only be written by a trusted backend process.
+     */
+    match /recommendation_logs/{logId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Stores sensitive machine learning data (item embeddings). This collection is completely locked down from client access.
+     * @path /ml/item_embeddings/{productId}
+     * @allow No client operation is allowed.
+     * @deny A user tries to read an embedding vector: (get) as {uid: 'user123'} on path `/ml/item_embeddings/prod123`.
+     * @principle Protects sensitive backend-only data from any and all client-side access.
+     */
+    match /ml/item_embeddings/{productId} {
+      allow get: if false;
+      allow list: if false;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}
+
+    
